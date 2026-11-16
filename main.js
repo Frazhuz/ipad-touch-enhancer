@@ -2,10 +2,10 @@ import {
   applyPanelDisplay,
   isSettingEnabled,
   panelState,
-  registerModuleSettings,
   setPanelVisibility,
   syncBodyFeatureClasses
-} from "./scripts/settings.js";
+} from "./scripts/utilities.js";
+import { registerModuleSettings } from "./scripts/settings.js"
 import { attachStageTouchListener, initTouchBar, setActiveMode } from "./scripts/touch-bar.js";
 import { initTokenHudObserver } from "./scripts/token-hud.js";
 
