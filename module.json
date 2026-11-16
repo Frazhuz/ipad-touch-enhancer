@@ -16,6 +16,7 @@
         "compatibility": {
           "minimum": "2.3.13",
           "verified": "2.3.13",
+          "maximum": "2.3.13"
         }
       }
     ]
