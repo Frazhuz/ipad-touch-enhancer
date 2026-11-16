@@ -1,4 +1,4 @@
-import { syncBodyFeatureClasses } from "./utilities.js";
+import { MODULE_ID, syncBodyFeatureClasses } from "./utilities.js";
 
 export const registerModuleSettings = (onStateChange) => {
   const notify = () => {
