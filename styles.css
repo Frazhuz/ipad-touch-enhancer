@@ -1,0 +1,228 @@
+/* ==========================================================================
+   1. Floating Touch Modifier Bar (2x / RMB)
+   ========================================================================== */
+#ipad-touch-toggles {
+  position: fixed;
+  z-index: 9999;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 5px;
+  padding: 4px 6px;
+  background: rgba(24, 24, 30, 0.96);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.55);
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+#ipad-touch-toggles.locked {
+  border-color: rgba(255, 255, 255, 0.12);
+}
+
+#ipad-touch-toggles .drag-handle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 34px;
+  color: #aaa;
+  font-size: 14px;
+  cursor: grab;
+  touch-action: none;
+}
+
+#ipad-touch-toggles.locked .drag-handle {
+  display: none;
+}
+
+#ipad-touch-toggles button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  height: 34px;
+  padding: 0 11px;
+  margin: 0;
+  background: rgba(45, 45, 55, 0.98);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 6px;
+  color: #e8e8e8;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1;
+  cursor: pointer;
+  touch-action: manipulation;
+}
+
+#ipad-touch-toggles button.active {
+  background: rgba(255, 100, 0, 0.95);
+  border-color: #ff944d;
+  color: #fff;
+  box-shadow: 0 0 10px rgba(255, 100, 0, 0.75);
+}
+
+#ipad-touch-toggles button.lock-btn {
+  width: 30px;
+  padding: 0;
+  color: #bbb;
+  background: rgba(35, 35, 42, 0.95);
+}
+
+#ipad-touch-toggles.locked button.lock-btn {
+  color: #ff944d;
+  border-color: rgba(255, 148, 77, 0.45);
+}
+
+/* ==========================================================================
+   2. Hide Safari Datalist Arrow (^) over Elevation Input in Token HUD
+   ========================================================================== */
+body.ipad-enhancer-hide-arrow #token-hud .attribute.elevation::before,
+body.ipad-enhancer-hide-arrow #token-hud .attribute.elevation::after,
+body.ipad-enhancer-hide-arrow #token-hud [data-attribute="elevation"]::before,
+body.ipad-enhancer-hide-arrow #token-hud [data-attribute="elevation"]::after,
+body.ipad-enhancer-hide-arrow #token-hud .elevation::before,
+body.ipad-enhancer-hide-arrow #token-hud .elevation::after,
+body.ipad-enhancer-hide-arrow #token-hud .control-icon.elevation::before,
+body.ipad-enhancer-hide-arrow #token-hud .control-icon.elevation::after {
+  display: none !important;
+  content: none !important;
+}
+
+body.ipad-enhancer-hide-arrow #token-hud input,
+body.ipad-enhancer-hide-arrow .placeable-hud input {
+  -webkit-appearance: none !important;
+  appearance: none !important;
+  background-image: none !important;
+}
+
+body.ipad-enhancer-hide-arrow #token-hud input::-webkit-calendar-picker-indicator,
+body.ipad-enhancer-hide-arrow #token-hud input::-webkit-list-button,
+body.ipad-enhancer-hide-arrow #token-hud input::-webkit-textfield-decoration-container,
+body.ipad-enhancer-hide-arrow #token-hud input::-webkit-inner-spin-button,
+body.ipad-enhancer-hide-arrow #token-hud input::-webkit-outer-spin-button {
+  display: none !important;
+  -webkit-appearance: none !important;
+  opacity: 0 !important;
+  width: 0 !important;
+  height: 0 !important;
+}
+
+/* ==========================================================================
+   3. iPadOS / iOS Safari Compositing, ApplicationV2 Windows & Input Fixes
+   ========================================================================== */
+@supports (-webkit-touch-callout: none) {
+  /* Fix ApplicationV2 windows, blank dialogs, and lingering HUD ghost layers */
+  body.ipad-enhancer-fix-windows #hud .placeable-hud {
+    transition: none !important;
+    animation: none !important;
+  }
+
+  body.ipad-enhancer-fix-windows #hud .placeable-hud:not(.active):not([style*="display: flex"]):not([style*="display: block"]) {
+    display: none !important;
+  }
+
+  body.ipad-enhancer-fix-windows dialog.application,
+  body.ipad-enhancer-fix-windows .application:not(#module-management) {
+    contain: style !important;
+    max-width: calc(100vw - 16px) !important;
+    max-height: 90dvh !important;
+    height: auto !important;
+    box-sizing: border-box !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+  }
+
+  body.ipad-enhancer-fix-windows .application .window-content {
+    flex: 1 1 auto !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+    min-height: 0 !important;
+    max-height: calc(90dvh - 44px) !important;
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+    -webkit-overflow-scrolling: touch;
+    box-sizing: border-box !important;
+  }
+
+  body.ipad-enhancer-fix-windows dialog.application {
+    display: flex !important;
+    flex-direction: column !important;
+    overflow: hidden !important;
+  }
+
+  body.ipad-enhancer-fix-windows .application .window-content > *,
+  body.ipad-enhancer-fix-windows .application form,
+  body.ipad-enhancer-fix-windows .application .tab,
+  body.ipad-enhancer-fix-windows .application .form-group,
+  body.ipad-enhancer-fix-windows .application .form-fields,
+  body.ipad-enhancer-fix-windows .application section {
+    min-width: 0 !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  body.ipad-enhancer-fix-windows .application .notes,
+  body.ipad-enhancer-fix-windows .application p.hint,
+  body.ipad-enhancer-fix-windows .application .form-group label,
+  body.ipad-enhancer-fix-windows .application .form-group input:not([type="checkbox"]):not([type="radio"]):not([type="color"]),
+  body.ipad-enhancer-fix-windows .application .form-group select,
+  body.ipad-enhancer-fix-windows .application .form-group button {
+    max-width: 100% !important;
+    min-width: 0 !important;
+    overflow-wrap: anywhere !important;
+    word-break: break-word !important;
+  }
+
+  body.ipad-enhancer-fix-windows #settings-config aside,
+  body.ipad-enhancer-fix-windows .application aside.sidebar {
+    flex: 0 1 190px !important;
+    min-width: 150px !important;
+  }
+
+  /* Fix checkboxes and color inputs in Safari */
+  body.ipad-enhancer-fix-inputs .application .form-group input[type="color"] {
+    flex: 0 0 44px !important;
+    width: 44px !important;
+    min-width: 44px !important;
+    height: 28px !important;
+    padding: 2px !important;
+    border-radius: 4px !important;
+  }
+
+  body.ipad-enhancer-fix-inputs .application input[type="checkbox"],
+  body.ipad-enhancer-fix-inputs dialog.application input[type="checkbox"] {
+    -webkit-appearance: none !important;
+    appearance: none !important;
+    position: relative !important;
+    flex: 0 0 20px !important;
+    width: 20px !important;
+    height: 20px !important;
+    min-width: 20px !important;
+    min-height: 20px !important;
+    margin-right: 8px !important;
+    overflow: hidden !important;
+  }
+
+  body.ipad-enhancer-fix-inputs .application input[type="checkbox"]::before,
+  body.ipad-enhancer-fix-inputs .application input[type="checkbox"]::after,
+  body.ipad-enhancer-fix-inputs dialog.application input[type="checkbox"]::before,
+  body.ipad-enhancer-fix-inputs dialog.application input[type="checkbox"]::after {
+    position: absolute !important;
+    inset: 0 !important;
+    margin: auto !important;
+    transform: none !important;
+  }
+
+  body.ipad-enhancer-fix-inputs .window-app:not(.application) input[type="checkbox"] {
+    -webkit-appearance: checkbox !important;
+    appearance: checkbox !important;
+    width: 20px !important;
+    height: 20px !important;
+    min-width: 20px !important;
+    min-height: 20px !important;
+    flex: 0 0 20px !important;
+    margin-right: 8px !important;
+  }
+}
