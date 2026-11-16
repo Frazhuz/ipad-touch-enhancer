@@ -86,7 +86,7 @@ export const executeCanvasAction = (pos, mode) => {
     if (obj) {
       if (typeof obj.control === "function") obj.control({ releaseOthers: true });
       if (type === "tokens" && canvas.hud?.token) {
-        openTokenHudFor(obj);
+        canvas.hud.token.bind(obj);
       } else if (type === "tiles" && canvas.hud?.tile) {
         canvas.hud.tile.bind(obj);
       } else if (type === "drawings" && canvas.hud?.drawing) {
@@ -250,7 +250,11 @@ export const attachStageTouchListener = () => {
       return;
     }
 
-    if (isSettingEnabled("enableSingleTapHud") && canvas.hud?.token) {
+    if (
+      isSettingEnabled("enableSingleTapHud") &&
+      canvas.activeLayer?.options?.name === "tokens" &&
+      canvas.hud?.token
+    ) {
       const hitToken = findTokenAtPos(upPos);
       if (hitToken) {
         openTokenHudFor(hitToken);
@@ -258,6 +262,6 @@ export const attachStageTouchListener = () => {
     }
   };
 
-  canvas.stage.on("pointerdown", onStageDown);
-  canvas.stage.on("pointerup", onStageUp);
+  canvas.stage.on("pointerdowncapture", onStageDown);
+  canvas.stage.on("pointerupcapture", onStageUp);
 };
