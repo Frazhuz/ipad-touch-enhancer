@@ -1,0 +1,33 @@
+/* ==========================================================================
+   2. Hide Safari Datalist Arrow (^) over Elevation Input in Token HUD
+   ========================================================================== */
+body.ipad-enhancer-hide-arrow #token-hud .attribute.elevation::before,
+body.ipad-enhancer-hide-arrow #token-hud .attribute.elevation::after,
+body.ipad-enhancer-hide-arrow #token-hud [data-attribute="elevation"]::before,
+body.ipad-enhancer-hide-arrow #token-hud [data-attribute="elevation"]::after,
+body.ipad-enhancer-hide-arrow #token-hud .elevation::before,
+body.ipad-enhancer-hide-arrow #token-hud .elevation::after,
+body.ipad-enhancer-hide-arrow #token-hud .control-icon.elevation::before,
+body.ipad-enhancer-hide-arrow #token-hud .control-icon.elevation::after {
+  display: none !important;
+  content: none !important;
+}
+
+body.ipad-enhancer-hide-arrow #token-hud input,
+body.ipad-enhancer-hide-arrow .placeable-hud input {
+  -webkit-appearance: none !important;
+  appearance: none !important;
+  background-image: none !important;
+}
+
+body.ipad-enhancer-hide-arrow #token-hud input::-webkit-calendar-picker-indicator,
+body.ipad-enhancer-hide-arrow #token-hud input::-webkit-list-button,
+body.ipad-enhancer-hide-arrow #token-hud input::-webkit-textfield-decoration-container,
+body.ipad-enhancer-hide-arrow #token-hud input::-webkit-inner-spin-button,
+body.ipad-enhancer-hide-arrow #token-hud input::-webkit-outer-spin-button {
+  display: none !important;
+  -webkit-appearance: none !important;
+  opacity: 0 !important;
+  width: 0 !important;
+  height: 0 !important;
+}
