@@ -6,8 +6,8 @@ import {
   setPanelVisibility,
   syncBodyFeatureClasses
 } from "./scripts/settings.js";
-import { attachStageTouchListener, initTouchBar, setActiveMode } from "./touch-bar.js";
-import { initTokenHudObserver } from "./token-hud.js";
+import { attachStageTouchListener, initTouchBar, setActiveMode } from "./scripts/touch-bar.js";
+import { initTokenHudObserver } from "./scripts/token-hud.js";
 
 const resetModeCallback = () => setActiveMode("none");
 
