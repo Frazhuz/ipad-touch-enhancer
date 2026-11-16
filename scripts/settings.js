@@ -1,11 +1,6 @@
 import { MODULE_ID, syncBodyFeatureClasses } from "./utilities.js";
 
 export const registerModuleSettings = (onStateChange) => {
-  const notify = () => {
-    syncBodyFeatureClasses();
-    if (typeof onStateChange === "function") onStateChange();
-  };
-
   game.settings.register(MODULE_ID, "enableModule", {
     name: "Enable module",
     hint: "Master switch to enable or disable all features and visual fixes of this module for your client.",
@@ -14,7 +9,8 @@ export const registerModuleSettings = (onStateChange) => {
     type: Boolean,
     default: false,
     onChange: () => {
-      notify();
+      syncBodyFeatureClasses();
+      if (typeof onStateChange === "function") onStateChange();
       ui.controls?.render();
       canvas.hud?.token?.render();
     }
@@ -28,7 +24,8 @@ export const registerModuleSettings = (onStateChange) => {
     type: Boolean,
     default: true,
     onChange: () => {
-      notify();
+      syncBodyFeatureClasses();
+      if (typeof onStateChange === "function") onStateChange();
       ui.controls?.render();
     }
   });
@@ -60,7 +57,7 @@ export const registerModuleSettings = (onStateChange) => {
     type: Boolean,
     default: true,
     onChange: () => {
-      notify();
+      syncBodyFeatureClasses();
       canvas.hud?.token?.render();
     }
   });
