@@ -22,13 +22,9 @@ export const openTokenHudFor = (token) => {
   if (!token.controlled) {
     token.control({ releaseOthers: true });
   }
-
-  requestAnimationFrame(() => {
-    if (token.destroyed || !canvas.tokens?.controlled) return;
-    if (canvas.tokens.controlled.length === 1 && canvas.tokens.controlled[0] === token) {
-      hud.bind(token);
-    }
-  });
+  if (canvas.tokens.controlled.length === 1 && hud.object !== token) {
+    hud.bind(token);
+  }
 };
 
 const enhanceTokenHUD = (tokenHudEl) => {
