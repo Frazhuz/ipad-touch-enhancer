@@ -1,0 +1,76 @@
+/* ==========================================================================
+   1. Floating Touch Modifier Bar (2x / RMB)
+   ========================================================================== */
+#ipad-touch-toggles {
+  position: fixed;
+  z-index: 9999;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 5px;
+  padding: 4px 6px;
+  background: rgba(24, 24, 30, 0.96);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.55);
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+#ipad-touch-toggles.locked {
+  border-color: rgba(255, 255, 255, 0.12);
+}
+
+#ipad-touch-toggles .drag-handle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 34px;
+  color: #aaa;
+  font-size: 14px;
+  cursor: grab;
+  touch-action: none;
+}
+
+#ipad-touch-toggles.locked .drag-handle {
+  display: none;
+}
+
+#ipad-touch-toggles button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  height: 34px;
+  padding: 0 11px;
+  margin: 0;
+  background: rgba(45, 45, 55, 0.98);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 6px;
+  color: #e8e8e8;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1;
+  cursor: pointer;
+  touch-action: manipulation;
+}
+
+#ipad-touch-toggles button.active {
+  background: rgba(255, 100, 0, 0.95);
+  border-color: #ff944d;
+  color: #fff;
+  box-shadow: 0 0 10px rgba(255, 100, 0, 0.75);
+}
+
+#ipad-touch-toggles button.lock-btn {
+  width: 30px;
+  padding: 0;
+  color: #bbb;
+  background: rgba(35, 35, 42, 0.95);
+}
+
+#ipad-touch-toggles.locked button.lock-btn {
+  color: #ff944d;
+  border-color: rgba(255, 148, 77, 0.45);
+}
