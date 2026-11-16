@@ -1,4 +1,4 @@
-const MODULE_ID = "ipad-touch-enchancer-main";
+const MODULE_ID = "ipad-touch-enhancer-main";
 const STORAGE_KEY = "ipad-touch-toggles-state-v5";
 let activeMode = "none"; // "none" | "double" | "right"
 
