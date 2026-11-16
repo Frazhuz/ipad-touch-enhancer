@@ -60,7 +60,7 @@ export const registerModuleSettings = (onStateChange) => {
     type: Boolean,
     default: true,
     onChange: () => {
-      syncBodyFeatureClasses();
+      notify();
       canvas.hud?.token?.render();
     }
   });
