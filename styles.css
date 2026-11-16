@@ -119,12 +119,12 @@ body.ipad-enhancer-hide-arrow #token-hud input::-webkit-outer-spin-button {
     animation: none !important;
   }
 
-  body.ipad-enhancer-fix-windows #hud .placeable-hud:not(.active):not([style*="display: flex"]):not([style*="display: block"]) {
+  body.ipad-enhancer-fix-windows #hud .placeable-hud:not([open]):not(.active):not([style*="display: flex"]):not([style*="display: block"]):not([style*="display: grid"]) {
     display: none !important;
   }
 
-  body.ipad-enhancer-fix-windows dialog.application,
-  body.ipad-enhancer-fix-windows .application:not(#module-management) {
+  body.ipad-enhancer-fix-windows dialog.application:not(#token-hud):not(.placeable-hud),
+  body.ipad-enhancer-fix-windows .application:not(#module-management):not(#token-hud):not(.placeable-hud) {
     contain: style !important;
     max-width: calc(100vw - 16px) !important;
     max-height: 90dvh !important;
@@ -134,7 +134,7 @@ body.ipad-enhancer-hide-arrow #token-hud input::-webkit-outer-spin-button {
     -webkit-backdrop-filter: none !important;
   }
 
-  body.ipad-enhancer-fix-windows .application .window-content {
+  body.ipad-enhancer-fix-windows .application:not(#token-hud):not(.placeable-hud) .window-content {
     flex: 1 1 auto !important;
     min-width: 0 !important;
     max-width: 100% !important;
@@ -146,29 +146,29 @@ body.ipad-enhancer-hide-arrow #token-hud input::-webkit-outer-spin-button {
     box-sizing: border-box !important;
   }
 
-  body.ipad-enhancer-fix-windows dialog.application {
+  body.ipad-enhancer-fix-windows dialog.application:not(#token-hud):not(.placeable-hud) {
     display: flex !important;
     flex-direction: column !important;
     overflow: hidden !important;
   }
 
-  body.ipad-enhancer-fix-windows .application .window-content > *,
-  body.ipad-enhancer-fix-windows .application form,
-  body.ipad-enhancer-fix-windows .application .tab,
-  body.ipad-enhancer-fix-windows .application .form-group,
-  body.ipad-enhancer-fix-windows .application .form-fields,
-  body.ipad-enhancer-fix-windows .application section {
+  body.ipad-enhancer-fix-windows .application:not(#token-hud):not(.placeable-hud) .window-content > *,
+  body.ipad-enhancer-fix-windows .application:not(#token-hud):not(.placeable-hud) form,
+  body.ipad-enhancer-fix-windows .application:not(#token-hud):not(.placeable-hud) .tab,
+  body.ipad-enhancer-fix-windows .application:not(#token-hud):not(.placeable-hud) .form-group,
+  body.ipad-enhancer-fix-windows .application:not(#token-hud):not(.placeable-hud) .form-fields,
+  body.ipad-enhancer-fix-windows .application:not(#token-hud):not(.placeable-hud) section {
     min-width: 0 !important;
     max-width: 100% !important;
     box-sizing: border-box !important;
   }
 
-  body.ipad-enhancer-fix-windows .application .notes,
-  body.ipad-enhancer-fix-windows .application p.hint,
-  body.ipad-enhancer-fix-windows .application .form-group label,
-  body.ipad-enhancer-fix-windows .application .form-group input:not([type="checkbox"]):not([type="radio"]):not([type="color"]),
-  body.ipad-enhancer-fix-windows .application .form-group select,
-  body.ipad-enhancer-fix-windows .application .form-group button {
+  body.ipad-enhancer-fix-windows .application:not(#token-hud):not(.placeable-hud) .notes,
+  body.ipad-enhancer-fix-windows .application:not(#token-hud):not(.placeable-hud) p.hint,
+  body.ipad-enhancer-fix-windows .application:not(#token-hud):not(.placeable-hud) .form-group label,
+  body.ipad-enhancer-fix-windows .application:not(#token-hud):not(.placeable-hud) .form-group input:not([type="checkbox"]):not([type="radio"]):not([type="color"]),
+  body.ipad-enhancer-fix-windows .application:not(#token-hud):not(.placeable-hud) .form-group select,
+  body.ipad-enhancer-fix-windows .application:not(#token-hud):not(.placeable-hud) .form-group button {
     max-width: 100% !important;
     min-width: 0 !important;
     overflow-wrap: anywhere !important;
@@ -176,7 +176,7 @@ body.ipad-enhancer-hide-arrow #token-hud input::-webkit-outer-spin-button {
   }
 
   body.ipad-enhancer-fix-windows #settings-config aside,
-  body.ipad-enhancer-fix-windows .application aside.sidebar {
+  body.ipad-enhancer-fix-windows .application:not(#token-hud):not(.placeable-hud) aside.sidebar {
     flex: 0 1 190px !important;
     min-width: 150px !important;
   }
