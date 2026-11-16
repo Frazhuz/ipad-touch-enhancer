@@ -1,0 +1,112 @@
+/* ==========================================================================
+   3. Fix Foundry V13 for Safari on iPad / iOS
+   ========================================================================== */
+@supports (-webkit-touch-callout: none) {
+  /* 1. Исправление размеров и обрезки окон и диалогов (ApplicationV2) */
+  body.ipad-enhancer-fix-windows dialog.application,
+  body.ipad-enhancer-fix-windows .application:not(#module-management) {
+    contain: style !important;
+    max-width: calc(100vw - 16px) !important;
+    max-height: 90dvh !important;
+    height: auto !important;
+    box-sizing: border-box !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+  }
+
+  body.ipad-enhancer-fix-windows .application .window-content {
+    flex: 1 1 auto !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+    min-height: 0 !important;
+    max-height: calc(90dvh - 44px) !important;
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+    -webkit-overflow-scrolling: touch;
+    box-sizing: border-box !important;
+  }
+
+  body.ipad-enhancer-fix-windows dialog.application {
+    display: flex !important;
+    flex-direction: column !important;
+    overflow: hidden !important;
+  }
+
+  /* Запрещаем внутренним flex/grid блокам (включая Game Settings) распирать окно вправо */
+  body.ipad-enhancer-fix-windows .application .window-content > *,
+  body.ipad-enhancer-fix-windows .application form,
+  body.ipad-enhancer-fix-windows .application .tab,
+  body.ipad-enhancer-fix-windows .application .form-group,
+  body.ipad-enhancer-fix-windows .application .form-fields,
+  body.ipad-enhancer-fix-windows .application section {
+    min-width: 0 !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  body.ipad-enhancer-fix-windows .application .notes,
+  body.ipad-enhancer-fix-windows .application p.hint,
+  body.ipad-enhancer-fix-windows .application .form-group label,
+  body.ipad-enhancer-fix-windows .application .form-group input:not([type="checkbox"]):not([type="radio"]):not([type="color"]),
+  body.ipad-enhancer-fix-windows .application .form-group select,
+  body.ipad-enhancer-fix-windows .application .form-group button {
+    max-width: 100% !important;
+    min-width: 0 !important;
+    overflow-wrap: anywhere !important;
+    word-break: break-word !important;
+  }
+
+  body.ipad-enhancer-fix-windows #settings-config aside,
+  body.ipad-enhancer-fix-windows .application aside.sidebar {
+    flex: 0 1 190px !important;
+    min-width: 150px !important;
+  }
+
+  /* 2. Исправление чекбоксов и полей выбора цвета в Safari */
+  body.ipad-enhancer-fix-inputs .application .form-group input[type="color"] {
+    flex: 0 0 44px !important;
+    width: 44px !important;
+    min-width: 44px !important;
+    height: 28px !important;
+    padding: 2px !important;
+    border-radius: 4px !important;
+  }
+
+  /* Исправление чекбоксов в Foundry V13 без скрытия нативных чекбоксов в модулях (Dice So Nice и др.) */
+  body.ipad-enhancer-fix-inputs .application input[type="checkbox"],
+  body.ipad-enhancer-fix-inputs dialog.application input[type="checkbox"] {
+    -webkit-appearance: none !important;
+    appearance: none !important;
+    position: relative !important;
+    flex: 0 0 20px !important;
+    width: 20px !important;
+    height: 20px !important;
+    min-width: 20px !important;
+    min-height: 20px !important;
+    margin-right: 8px !important;
+    overflow: hidden !important;
+  }
+
+  /* Для классических окон модулей (.window-app, например 3D Dice Settings) возвращаем системный чекбокс Safari */
+  body.ipad-enhancer-fix-inputs .window-app:not(.application) input[type="checkbox"] {
+    -webkit-appearance: checkbox !important;
+    appearance: checkbox !important;
+    width: 20px !important;
+    height: 20px !important;
+    min-width: 20px !important;
+    min-height: 20px !important;
+    flex: 0 0 20px !important;
+    margin-right: 8px !important;
+  }
+
+  /* Фиксируем псевдоэлементы галочки строго внутри границ чекбокса ApplicationV2 */
+  body.ipad-enhancer-fix-inputs .application input[type="checkbox"]::before,
+  body.ipad-enhancer-fix-inputs .application input[type="checkbox"]::after,
+  body.ipad-enhancer-fix-inputs dialog.application input[type="checkbox"]::before,
+  body.ipad-enhancer-fix-inputs dialog.application input[type="checkbox"]::after {
+    position: absolute !important;
+    inset: 0 !important;
+    margin: auto !important;
+    transform: none !important;
+  }
+}
