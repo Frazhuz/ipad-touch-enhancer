@@ -1,3 +1,5 @@
+import { syncBodyFeatureClasses } from "./utilities.js";
+
 export const registerModuleSettings = (onStateChange) => {
   const notify = () => {
     syncBodyFeatureClasses();
@@ -5,12 +7,12 @@ export const registerModuleSettings = (onStateChange) => {
   };
 
   game.settings.register(MODULE_ID, "enableModule", {
-    name: "Enable iPadOS Safari Touch & UI Enhancer",
+    name: "Enable module",
     hint: "Master switch to enable or disable all features and visual fixes of this module for your client.",
     scope: "client",
     config: true,
     type: Boolean,
-    default: true,
+    default: false,
     onChange: () => {
       notify();
       ui.controls?.render();
@@ -19,8 +21,8 @@ export const registerModuleSettings = (onStateChange) => {
   });
 
   game.settings.register(MODULE_ID, "enableTouchBar", {
-    name: "Floating Touch Modifier Bar (2x / Right-Click)",
-    hint: "Displays a compact, draggable bar for emulating Double-Click and Right-Click, along with a visibility toggle button in Scene Controls.",
+    name: "Double-click / Right-click bar",
+    hint: "Adds a draggable mini-bar to emulate double-click and right-click actions, with a toggle button in the Scene Controls bar to control its visibility.",
     scope: "client",
     config: true,
     type: Boolean,
@@ -32,8 +34,8 @@ export const registerModuleSettings = (onStateChange) => {
   });
 
   game.settings.register(MODULE_ID, "enableSingleTapHud", {
-    name: "Open Token HUD on Single Tap",
-    hint: "Opens the Token HUD upon a short tap on any token, even if that token is already selected.",
+    name: "Token HUD on Short Tap",
+    hint: "Opens the Token HUD on a short tap of a token.",
     scope: "client",
     config: true,
     type: Boolean,
@@ -41,8 +43,8 @@ export const registerModuleSettings = (onStateChange) => {
   });
 
   game.settings.register(MODULE_ID, "enableHudSheetButton", {
-    name: "Actor Sheet Button in Token HUD",
-    hint: "Adds a quick-access character sheet button to the left column of the Token HUD.",
+    name: "Actor Sheet Button",
+    hint: "Adds a button to the Token HUD that opens the selected token’s Actor Sheet.",
     scope: "client",
     config: true,
     type: Boolean,
@@ -51,7 +53,7 @@ export const registerModuleSettings = (onStateChange) => {
   });
 
   game.settings.register(MODULE_ID, "hideHudElevationArrow", {
-    name: "Hide Safari Elevation Dropdown Arrow in Token HUD",
+    name: "Hide Caret (^)",
     hint: "Removes the system datalist dropdown indicator (^) rendered by iPadOS Safari over the token elevation field.",
     scope: "client",
     config: true,
@@ -64,8 +66,8 @@ export const registerModuleSettings = (onStateChange) => {
   });
 
   game.settings.register(MODULE_ID, "fixSafariWindows", {
-    name: "Fix ApplicationV2 Windows & Dialogs in Safari",
-    hint: "Prevents blank/transparent modal dialogs, lingering HUD ghost layers, and horizontal clipping in wide settings menus on iPadOS/iOS Safari.",
+    name: "Fix Application Window Clipping",
+    hint: "Adjusts application window positioning to prevent clipping at the bottom of the screen.",
     scope: "client",
     config: true,
     type: Boolean,
@@ -74,8 +76,8 @@ export const registerModuleSettings = (onStateChange) => {
   });
 
   game.settings.register(MODULE_ID, "fixSafariInputs", {
-    name: "Fix Checkboxes & Color Pickers in Safari",
-    hint: "Restores missing checkboxes and properly sized color inputs in Foundry v13 windows and legacy module dialogs (e.g., Dice So Nice) on iPadOS/iOS.",
+    name: "Fix Duplicate Checkboxes",
+    hint: "Prevents checkboxes from appearing twice in the interface.",
     scope: "client",
     config: true,
     type: Boolean,
