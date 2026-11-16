@@ -1,5 +1,5 @@
 {
-  "id": "ipad-touch-enhancer",
+  "id": "ipad-touch-enchancer-main",
   "title": "iPadOS Safari Touch & UI Enhancer",
   "description": "Optimizes Foundry VTT for iPadOS/iOS Safari: adds a draggable touch modifier bar (Double-Click / Right-Click) with a scene control toggle, single-tap Token HUD, Actor Sheet quick-open button, and WebKit UI/ApplicationV2 rendering fixes.",
   "version": "1.0.0",
