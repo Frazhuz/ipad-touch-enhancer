@@ -1,4 +1,4 @@
-import { isModuleEnabled, isSettingEnabled } from "./settings.js";
+import { isModuleEnabled, isSettingEnabled } from "./utilities.js";
 
 export const findTokenAtPos = (pos) => {
   return (
