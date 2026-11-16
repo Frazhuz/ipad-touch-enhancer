@@ -20,7 +20,7 @@ Hooks.on("getSceneControlButtons", (controls) => {
 
   const toggleTool = {
     name: "ipad-touch-panel",
-    title: "Touch Modifier Bar (2x / Right-Click)",
+    title: "Touch Modifier Mini-Bar (Double-click / Right-click)",
     icon: "fa-solid fa-hand-pointer",
     order: 999,
     toggle: true,
