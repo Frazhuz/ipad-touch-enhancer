@@ -2,7 +2,7 @@ function reportError(error) {
   const message = error?.message ?? String(error);
 
   globalThis.ui?.notifications?.error(
-    `ipad-touch-enhancer: ${message}`,
+    `ipad-touch-enhancer-main: ${message}`,
     { permanent: true }
   );
 }
