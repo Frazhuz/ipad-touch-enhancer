@@ -45,6 +45,7 @@ export const syncBodyFeatureClasses = () => {
   document.body.classList.toggle("ipad-enhancer-hide-arrow", isSettingEnabled("hideHudElevationArrow"));
   document.body.classList.toggle("ipad-enhancer-fix-windows", isSettingEnabled("fixWindows"));
   document.body.classList.toggle("ipad-enhancer-fix-checkboxes", isSettingEnabled("fixCheckboxes"));
+  document.body.classList.toggle("ipad-enhancer-fix-region-legend", isSettingEnabled("fixRegionLegend"));
 };
 
 export const applyPanelDisplay = (onHideResetMode = null) => {
