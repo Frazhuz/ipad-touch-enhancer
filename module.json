@@ -31,7 +31,9 @@
   "styles": [
     "styles/touch-bar.css",
     "styles/token-hud.css",
-    "styles/safari-fixes.css"
+    "styles/fix-windows.css",
+    "styles/fix-region-legend.css",
+    "styles/fix-checkboxes.css",
   ],
   "languages": [
     {
