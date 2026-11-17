@@ -1,0 +1,50 @@
+{
+  "IPAD_TOUCH_ENHANCER": {
+    "ModuleTitle": "iPadOS/iOS Safari Touch & UI Enhancer",
+    "ModuleDescription": "Optimizes Foundry VTT v13 for iPadOS/iOS Safari: Adds a draggable double-click/right-click mini-bar, fixes for window clipping and duplicate checkboxes, and more.",
+    "Settings": {
+      "EnableModule": {
+        "Name": "Enable module",
+        "Hint": "Master switch to enable or disable all features and visual fixes of this module for your client."
+      },
+      "EnableTouchBar": {
+        "Name": "Double-click / Right-click mini-bar",
+        "Hint": "Adds a draggable mini-bar to emulate double-click and right-click actions, with a toggle button in the Scene Controls bar to control its visibility."
+      },
+      "EnableSingleTapHud": {
+        "Name": "Token HUD on Short Tap",
+        "Hint": "Opens the Token HUD on a short tap of a token."
+      },
+      "EnableHudSheetButton": {
+        "Name": "Actor Sheet Button",
+        "Hint": "Adds a button to the Token HUD that opens the selected token’s Actor Sheet."
+      },
+      "HideHudElevationArrow": {
+        "Name": "Hide Caret (^)",
+        "Hint": "Removes the system datalist dropdown indicator (^) rendered by iPadOS Safari over the token elevation field."
+      },
+      "FixSafariWindows": {
+        "Name": "Fix Application Window Clipping",
+        "Hint": "Adjusts application window positioning to prevent clipping at the bottom of the screen."
+      },
+      "FixSafariInputs": {
+        "Name": "Fix Duplicate Checkboxes",
+        "Hint": "Prevents checkboxes from appearing twice in the interface."
+      }
+    },
+    "Controls": {
+      "TouchModifierBarToggle": "Touch Modifier Bar (Double-click / Right-click)"
+    },
+    "TokenHud": {
+      "OpenActorSheet": "Open Actor Sheet"
+    },
+    "TouchBar": {
+      "DragBar": "Drag bar",
+      "DoubleClickTitle": "Next tap = Double-Click",
+      "DoubleClickLabel": "2x",
+      "RightClickTitle": "Next tap = Right-Click",
+      "RightClickLabel": "RMB",
+      "LockPosition": "Lock / Unlock position"
+    }
+  }
+}
