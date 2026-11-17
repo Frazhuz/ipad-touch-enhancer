@@ -1,3 +1,36 @@
+body.ipad-enhancer-fix-settings-overflow .settings-config .window-content,
+body.ipad-enhancer-fix-settings-overflow .settings-config .window-content *,
+body.ipad-enhancer-fix-settings-overflow [id*="settings"] .window-content,
+body.ipad-enhancer-fix-settings-overflow [id*="settings"] .window-content * {
+  min-width: 0;
+  box-sizing: border-box;
+}
+
+body.ipad-enhancer-fix-settings-overflow .settings-config .form-group,
+body.ipad-enhancer-fix-settings-overflow [id*="settings"] .form-group {
+  display: flex;
+  flex-wrap: wrap;
+  height: auto !important;
+  max-height: none !important;
+  overflow: visible !important;
+}
+
+body.ipad-enhancer-fix-settings-overflow .settings-config .form-group > *,
+body.ipad-enhancer-fix-settings-overflow .settings-config .form-group p,
+body.ipad-enhancer-fix-settings-overflow .settings-config .form-group span,
+body.ipad-enhancer-fix-settings-overflow .settings-config .form-group label,
+body.ipad-enhancer-fix-settings-overflow [id*="settings"] .form-group > *,
+body.ipad-enhancer-fix-settings-overflow [id*="settings"] .form-group p,
+body.ipad-enhancer-fix-settings-overflow [id*="settings"] .form-group span,
+body.ipad-enhancer-fix-settings-overflow [id*="settings"] .form-group label {
+  max-width: 100% !important;
+  white-space: normal !important;
+  overflow-wrap: anywhere !important;
+  word-break: break-word !important;
+  overflow: visible !important;
+}
+
+/* Disable All Notifications */
 body.ipad-enhancer-disable-all-notifications #notifications,
 body.ipad-enhancer-disable-all-notifications .notifications {
   display: none !important;
