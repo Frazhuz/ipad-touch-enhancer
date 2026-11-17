@@ -1,5 +1,7 @@
 import { MODULE_ID } from "./utilities.js";
 
+const modDbg = (msg) => ui.notifications.info(`[ModReload] ${msg}`);
+
 const getRightSettingsTab = () =>
   document.querySelector('#sidebar section.settings[data-tab="settings"]') ||
   document.querySelector('section.settings[data-tab="settings"]') ||
@@ -8,9 +10,19 @@ const getRightSettingsTab = () =>
   document.querySelector('#settings');
 
 export const registerSidebarReloadButton = () => {
+  modDbg(`registerSidebarReloadButton вызван (MODULE_ID=${MODULE_ID})`);
+
   const addReloadButton = () => {
-    const enabled = game.settings.get(MODULE_ID, "enableReloadButton");
+    let enabled = false;
+    try {
+      enabled = game.settings.get(MODULE_ID, "enableReloadButton");
+    } catch (err) {
+      modDbg(`Ошибка чтения настройки enableReloadButton: ${err.message}`);
+      return;
+    }
+
     const tabEl = getRightSettingsTab();
+    modDbg(`addReloadButton: enabled=${enabled}, tabEl=${tabEl ? "найден" : "нет"}`);
 
     document.querySelectorAll(".ipad-enhancer-reload-button").forEach((el) => {
       if (!enabled || !tabEl || !tabEl.contains(el)) {
@@ -21,7 +33,9 @@ export const registerSidebarReloadButton = () => {
     if (!enabled || !tabEl) return;
     if (tabEl.querySelector(".ipad-enhancer-reload-button")) return;
 
-    const label = Reload
+    const label = game.i18n.localize(
+      "IPAD_TOUCH_ENHANCER.Settings.EnableReloadButton.Name"
+    );
 
     const button = document.createElement("button");
     button.type = "button";
@@ -41,6 +55,8 @@ export const registerSidebarReloadButton = () => {
     } else {
       tabEl.prepend(button);
     }
+
+    modDbg("Кнопка модуля добавлена во вкладку Settings");
   };
 
   Hooks.on("renderSettings", addReloadButton);
