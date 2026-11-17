@@ -46,7 +46,23 @@
       "CompactNotifications": {
         "Name": "Compact Notifications",
         "Hint": "Makes notifications smaller and moves them higher up."
-      }
+      },
+      "NotificationTop": {
+				"Name": "Notification Top Margin (px)",
+				"Hint": "Distance between the notification container and the top edge of the screen in pixels."
+			},
+			"NotificationLeft": {
+				"Name": "Notification Left Margin (px)",
+				"Hint": "Distance between the notification container and the left edge of the screen in pixels."
+			},
+			"NotificationWidth": {
+				"Name": "Notification Width (px)",
+				"Hint": "Maximum width of notifications in pixels."
+			},
+			"NotificationFontSize": {
+				"Name": "Notification Font Size (px)",
+				"Hint": "Text size of notifications in pixels."
+			}
     },
     "Controls": {
       "TouchModifierBarToggle": "Touch Modifier Bar (Double-click / Right-click)"
