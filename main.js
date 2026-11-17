@@ -14,7 +14,6 @@ const resetModeCallback = () => setActiveMode("none");
 
 Hooks.once("init", () => {
   registerModuleSettings(() => applyPanelDisplay(resetModeCallback));
-  registerSidebarReloadButton();
 });
 
 Hooks.on("getSceneControlButtons", (controls) => {
@@ -49,6 +48,7 @@ Hooks.on("getSceneControlButtons", (controls) => {
 
 Hooks.once("ready", () => {
   syncBodyFeatureClasses();
+  registerSidebarReloadButton();
   initTouchBar();
   initTokenHudObserver();
   attachStageTouchListener();
