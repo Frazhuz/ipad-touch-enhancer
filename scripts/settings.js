@@ -1,5 +1,5 @@
-
-import { MODULE_ID, syncBodyFeatureClasses } from "./utilities.js";
+import { MODULE_ID } from "./utilities.js";
+import { syncBodyFeatureClasses } from "./settings-implementation.js";
 
 export const registerModuleSettings = (onStateChange) => {
   game.settings.register(MODULE_ID, "enableModule", {
