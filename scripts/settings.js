@@ -62,9 +62,9 @@ export const registerModuleSettings = (onStateChange) => {
     }
   });
 
-  game.settings.register(MODULE_ID, "fixSafariWindows", {
-    name: game.i18n.localize("IPAD_TOUCH_ENHANCER.Settings.FixSafariWindows.Name"),
-    hint: game.i18n.localize("IPAD_TOUCH_ENHANCER.Settings.FixSafariWindows.Hint"),
+  game.settings.register(MODULE_ID, "fixWindows", {
+    name: game.i18n.localize("IPAD_TOUCH_ENHANCER.Settings.FixWindows.Name"),
+    hint: game.i18n.localize("IPAD_TOUCH_ENHANCER.Settings.FixWindows.Hint"),
     scope: "client",
     config: true,
     type: Boolean,
@@ -72,9 +72,9 @@ export const registerModuleSettings = (onStateChange) => {
     onChange: syncBodyFeatureClasses
   });
 
-  game.settings.register(MODULE_ID, "fixSafariInputs", {
-    name: game.i18n.localize("IPAD_TOUCH_ENHANCER.Settings.FixSafariInputs.Name"),
-    hint: game.i18n.localize("IPAD_TOUCH_ENHANCER.Settings.FixSafariInputs.Hint"),
+  game.settings.register(MODULE_ID, "fixCheckboxes", {
+    name: game.i18n.localize("IPAD_TOUCH_ENHANCER.Settings.FixCheckboxes.Name"),
+    hint: game.i18n.localize("IPAD_TOUCH_ENHANCER.Settings.FixCheckboxes.Hint"),
     scope: "client",
     config: true,
     type: Boolean,
