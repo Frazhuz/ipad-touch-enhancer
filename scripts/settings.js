@@ -1,3 +1,4 @@
+
 import { MODULE_ID, syncBodyFeatureClasses } from "./utilities.js";
 
 export const registerModuleSettings = (onStateChange) => {
@@ -112,6 +113,7 @@ export const registerModuleSettings = (onStateChange) => {
     onChange: syncBodyFeatureClasses
   });
 
+  // Compact Notifications
   game.settings.register(MODULE_ID, "compactNotifications", {
     name: game.i18n.localize("IPAD_TOUCH_ENHANCER.Settings.CompactNotifications.Name"),
     hint: game.i18n.localize("IPAD_TOUCH_ENHANCER.Settings.CompactNotifications.Hint"),
@@ -119,6 +121,50 @@ export const registerModuleSettings = (onStateChange) => {
     config: true,
     type: Boolean,
     default: false,
+    onChange: syncBodyFeatureClasses
+  });
+
+  // Notification Position: Top
+  game.settings.register(MODULE_ID, "notificationTop", {
+    name: game.i18n.localize("IPAD_TOUCH_ENHANCER.Settings.NotificationTop.Name"),
+    hint: game.i18n.localize("IPAD_TOUCH_ENHANCER.Settings.NotificationTop.Hint"),
+    scope: "client",
+    config: true,
+    type: Number,
+    default: 60,
+    onChange: syncBodyFeatureClasses
+  });
+
+  // Notification Position: Right
+  game.settings.register(MODULE_ID, "notificationRight", {
+    name: game.i18n.localize("IPAD_TOUCH_ENHANCER.Settings.NotificationRight.Name"),
+    hint: game.i18n.localize("IPAD_TOUCH_ENHANCER.Settings.NotificationRight.Hint"),
+    scope: "client",
+    config: true,
+    type: Number,
+    default: 40,
+    onChange: syncBodyFeatureClasses
+  });
+
+  // Notification Width
+  game.settings.register(MODULE_ID, "notificationWidth", {
+    name: game.i18n.localize("IPAD_TOUCH_ENHANCER.Settings.NotificationWidth.Name"),
+    hint: game.i18n.localize("IPAD_TOUCH_ENHANCER.Settings.NotificationWidth.Hint"),
+    scope: "client",
+    config: true,
+    type: Number,
+    default: 260,
+    onChange: syncBodyFeatureClasses
+  });
+
+  // Notification Font Size
+  game.settings.register(MODULE_ID, "notificationFontSize", {
+    name: game.i18n.localize("IPAD_TOUCH_ENHANCER.Settings.NotificationFontSize.Name"),
+    hint: game.i18n.localize("IPAD_TOUCH_ENHANCER.Settings.NotificationFontSize.Hint"),
+    scope: "client",
+    config: true,
+    type: Number,
+    default: 13,
     onChange: syncBodyFeatureClasses
   });
 };
