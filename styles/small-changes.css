@@ -1,3 +1,11 @@
+body.ipad-enhancer-disable-all-notifications #notifications,
+body.ipad-enhancer-disable-all-notifications .notifications {
+  display: none !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+}
+
+
 /* Remove Macro Bar */
 
 body.ipad-enhancer-remove-macro-bar #hotbar {
