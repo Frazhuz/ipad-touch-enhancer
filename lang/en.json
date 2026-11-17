@@ -23,6 +23,10 @@
         "Name": "Hide Caret (^)",
         "Hint": "Removes the system datalist dropdown indicator (^) rendered by iPadOS Safari over the token elevation field."
       },
+		"FixSettingsOverflow": {
+  "Name": "Fix Text Overflow",
+  "Hint": "Wrap long text and prevent clipping in Game Settings."
+},
       "FixWindows": {
         "Name": "Fix Application Windows",
         "Hint": "Adjusts application window positioning to prevent clipping at the bottom of the screen."
