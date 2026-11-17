@@ -81,4 +81,14 @@ export const registerModuleSettings = (onStateChange) => {
     default: true,
     onChange: syncBodyFeatureClasses
   });
+
+  game.settings.register(MODULE_ID, "fixRegionLegend", {
+    name: game.i18n.localize("IPAD_TOUCH_ENHANCER.Settings.fixRegionLegend.Name"),
+    hint: game.i18n.localize("IPAD_TOUCH_ENHANCER.Settings.fixRegionLegend.Hint"),
+    scope: "client",
+    config: true,
+    type: Boolean,
+    default: true,
+    onChange: syncBodyFeatureClasses
+  });
 };
