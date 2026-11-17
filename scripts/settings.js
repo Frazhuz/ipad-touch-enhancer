@@ -142,7 +142,7 @@ export const registerModuleSettings = (onStateChange) => {
     scope: "client",
     config: true,
     type: Number,
-    default: 240,
+    default: 245,
     onChange: syncBodyFeatureClasses
   });
 
@@ -164,7 +164,7 @@ export const registerModuleSettings = (onStateChange) => {
     scope: "client",
     config: true,
     type: Number,
-    default: 13,
+    default: 12,
     onChange: syncBodyFeatureClasses
   });
 
