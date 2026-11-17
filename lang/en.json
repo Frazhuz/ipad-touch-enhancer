@@ -47,6 +47,10 @@
         "Name": "Compact Notifications",
         "Hint": "Makes notifications smaller and moves them higher up."
       },
+				      "DisableAllNotifications": {
+        "Name": "Disable All Notifications",
+        "Hint": "Hide all notifications in the interface."
+      },
       "NotificationTop": {
 				"Name": "Notification Top Margin (px)",
 				"Hint": "Distance between the notification container and the top edge of the screen in pixels."
