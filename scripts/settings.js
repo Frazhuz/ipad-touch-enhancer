@@ -101,4 +101,14 @@ export const registerModuleSettings = (onStateChange) => {
     default: false,
     onChange: syncBodyFeatureClasses
   });
+
+  game.settings.register(MODULE_ID, "removePlayerList", {
+    name: game.i18n.localize("IPAD_TOUCH_ENHANCER.Settings.RemovePlayerList.Name"),
+    hint: game.i18n.localize("IPAD_TOUCH_ENHANCER.Settings.RemovePlayerList.Hint"),
+    scope: "client",
+    config: true,
+    type: Boolean,
+    default: false,
+    onChange: syncBodyFeatureClasses
+  });
 };
