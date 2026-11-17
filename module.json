@@ -2,7 +2,7 @@
   "id": "ipad-touch-enhancer-main",
   "title": "iPadOS/iOS Safari Touch & UI Enhancer",
   "description": "Optimizes Foundry VTT for iPadOS/iOS Safari: Adds a draggable double-click/right-click mini-bar, fixes for window clipping and duplicate checkboxes, and more.",
-  "version": "1.0.13",
+  "version": "1.0.14",
   "compatibility": {
     "minimum": "13",
     "verified": "13.351"
