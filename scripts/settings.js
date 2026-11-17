@@ -2,8 +2,8 @@ import { MODULE_ID, syncBodyFeatureClasses } from "./utilities.js";
 
 export const registerModuleSettings = (onStateChange) => {
   game.settings.register(MODULE_ID, "enableModule", {
-    name: "Enable module",
-    hint: "Master switch to enable or disable all features and visual fixes of this module for your client.",
+    name: game.i18n.localize("IPAD_TOUCH_ENHANCER.Settings.EnableModule.Name"),
+    hint: game.i18n.localize("IPAD_TOUCH_ENHANCER.Settings.EnableModule.Hint"),
     scope: "client",
     config: true,
     type: Boolean,
@@ -17,8 +17,8 @@ export const registerModuleSettings = (onStateChange) => {
   });
 
   game.settings.register(MODULE_ID, "enableTouchBar", {
-    name: "Double-click / Right-click bar",
-    hint: "Adds a draggable mini-bar to emulate double-click and right-click actions, with a toggle button in the Scene Controls bar to control its visibility.",
+    name: game.i18n.localize("IPAD_TOUCH_ENHANCER.Settings.EnableTouchBar.Name"),
+    hint: game.i18n.localize("IPAD_TOUCH_ENHANCER.Settings.EnableTouchBar.Hint"),
     scope: "client",
     config: true,
     type: Boolean,
@@ -31,8 +31,8 @@ export const registerModuleSettings = (onStateChange) => {
   });
 
   game.settings.register(MODULE_ID, "enableSingleTapHud", {
-    name: "Token HUD on Short Tap",
-    hint: "Opens the Token HUD on a short tap of a token.",
+    name: game.i18n.localize("IPAD_TOUCH_ENHANCER.Settings.EnableSingleTapHud.Name"),
+    hint: game.i18n.localize("IPAD_TOUCH_ENHANCER.Settings.EnableSingleTapHud.Hint"),
     scope: "client",
     config: true,
     type: Boolean,
@@ -40,8 +40,8 @@ export const registerModuleSettings = (onStateChange) => {
   });
 
   game.settings.register(MODULE_ID, "enableHudSheetButton", {
-    name: "Actor Sheet Button",
-    hint: "Adds a button to the Token HUD that opens the selected token’s Actor Sheet.",
+    name: game.i18n.localize("IPAD_TOUCH_ENHANCER.Settings.EnableHudSheetButton.Name"),
+    hint: game.i18n.localize("IPAD_TOUCH_ENHANCER.Settings.EnableHudSheetButton.Hint"),
     scope: "client",
     config: true,
     type: Boolean,
@@ -50,8 +50,8 @@ export const registerModuleSettings = (onStateChange) => {
   });
 
   game.settings.register(MODULE_ID, "hideHudElevationArrow", {
-    name: "Hide Caret (^)",
-    hint: "Removes the system datalist dropdown indicator (^) rendered by iPadOS Safari over the token elevation field.",
+    name: game.i18n.localize("IPAD_TOUCH_ENHANCER.Settings.HideHudElevationArrow.Name"),
+    hint: game.i18n.localize("IPAD_TOUCH_ENHANCER.Settings.HideHudElevationArrow.Hint"),
     scope: "client",
     config: true,
     type: Boolean,
@@ -63,8 +63,8 @@ export const registerModuleSettings = (onStateChange) => {
   });
 
   game.settings.register(MODULE_ID, "fixSafariWindows", {
-    name: "Fix Application Window Clipping",
-    hint: "Adjusts application window positioning to prevent clipping at the bottom of the screen.",
+    name: game.i18n.localize("IPAD_TOUCH_ENHANCER.Settings.FixSafariWindows.Name"),
+    hint: game.i18n.localize("IPAD_TOUCH_ENHANCER.Settings.FixSafariWindows.Hint"),
     scope: "client",
     config: true,
     type: Boolean,
@@ -73,8 +73,8 @@ export const registerModuleSettings = (onStateChange) => {
   });
 
   game.settings.register(MODULE_ID, "fixSafariInputs", {
-    name: "Fix Duplicate Checkboxes",
-    hint: "Prevents checkboxes from appearing twice in the interface.",
+    name: game.i18n.localize("IPAD_TOUCH_ENHANCER.Settings.FixSafariInputs.Name"),
+    hint: game.i18n.localize("IPAD_TOUCH_ENHANCER.Settings.FixSafariInputs.Hint"),
     scope: "client",
     config: true,
     type: Boolean,
