@@ -15,7 +15,7 @@ export function disableTokenMovementAnimation() {
 
     return originalGetAnimationDuration.call(this, data, options);
   };
-}
+};
 
 export const syncBodyFeatureClasses = () => {
   if (!document.body) return;
