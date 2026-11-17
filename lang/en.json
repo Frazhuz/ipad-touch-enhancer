@@ -30,7 +30,11 @@
       "FixCheckboxes": {
         "Name": "Fix Duplicate Checkboxes",
         "Hint": "Prevents checkboxes from appearing twice in the interface."
-      }
+      },
+      "FixRegionLegend": {
+        "Name": "Fix Region Legend List",
+        "Hint": "Ensures the regions list is visible."
+      },
     },
     "Controls": {
       "TouchModifierBarToggle": "Touch Modifier Bar (Double-click / Right-click)"
