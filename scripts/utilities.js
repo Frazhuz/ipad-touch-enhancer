@@ -49,6 +49,17 @@ export const syncBodyFeatureClasses = () => {
   document.body.classList.toggle("ipad-enhancer-remove-macro-bar", isSettingEnabled("removeMacroBar"));
   document.body.classList.toggle("ipad-enhancer-remove-player-list", isSettingEnabled("removePlayerList"));
   document.body.classList.toggle("ipad-enhancer-compact-notifications", isSettingEnabled("compactNotifications"));
+  const notificationSettings = {
+    "--ie-notification-top": "notificationTop",
+    "--ie-notification-left": "notificationLeft",
+    "--ie-notification-width": "notificationWidth",
+    "--ie-notification-font-size": "notificationFontSize"
+  };
+  for (const [cssVariable, settingKey] of Object.entries(notificationSettings)) {
+    const value = game.settings.get(MODULE_ID, settingKey);
+    document.body.style.setProperty(cssVariable, `${value}px`);
+  }
+
 };
 
 export const applyPanelDisplay = (onHideResetMode = null) => {
