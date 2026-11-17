@@ -68,7 +68,7 @@ export const registerModuleSettings = (onStateChange) => {
     scope: "client",
     config: true,
     type: Boolean,
-    default: true,
+    default: false,
     onChange: syncBodyFeatureClasses
   });
 
@@ -83,12 +83,22 @@ export const registerModuleSettings = (onStateChange) => {
   });
 
   game.settings.register(MODULE_ID, "fixRegionLegend", {
-    name: game.i18n.localize("IPAD_TOUCH_ENHANCER.Settings.fixRegionLegend.Name"),
-    hint: game.i18n.localize("IPAD_TOUCH_ENHANCER.Settings.fixRegionLegend.Hint"),
+    name: game.i18n.localize("IPAD_TOUCH_ENHANCER.Settings.FixRegionLegend.Name"),
+    hint: game.i18n.localize("IPAD_TOUCH_ENHANCER.Settings.FixRegionLegend.Hint"),
     scope: "client",
     config: true,
     type: Boolean,
-    default: true,
+    default: false,
+    onChange: syncBodyFeatureClasses
+  });
+
+  game.settings.register(MODULE_ID, "removeMacroBar", {
+    name: game.i18n.localize("IPAD_TOUCH_ENHANCER.Settings.RemoveMacroBar.Name"),
+    hint: game.i18n.localize("IPAD_TOUCH_ENHANCER.Settings.RemoveMacroBar.Hint"),
+    scope: "client",
+    config: true,
+    type: Boolean,
+    default: false,
     onChange: syncBodyFeatureClasses
   });
 };
