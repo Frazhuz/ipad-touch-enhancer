@@ -47,6 +47,7 @@ export const syncBodyFeatureClasses = () => {
   document.body.classList.toggle("ipad-enhancer-fix-checkboxes", isSettingEnabled("fixCheckboxes"));
   document.body.classList.toggle("ipad-enhancer-fix-region-legend", isSettingEnabled("fixRegionLegend"));
   document.body.classList.toggle("ipad-enhancer-remove-macro-bar", isSettingEnabled("removeMacroBar"));
+  document.body.classList.toggle("ipad-enhancer-remove-player-list", isSettingEnabled("removePlayerList"));
 };
 
 export const applyPanelDisplay = (onHideResetMode = null) => {
