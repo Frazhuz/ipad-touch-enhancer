@@ -27,7 +27,6 @@
   ],
   "esmodules": [
     "error-handler.js"
-    "main.js"
   ],
   "styles": [
     "styles/touch-bar.css",
