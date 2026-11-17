@@ -1,7 +1,5 @@
 import { MODULE_ID } from "./utilities.js";
 
-const modDbg = (msg) => ui.notifications.info(`[ModReload] ${msg}`);
-
 const getRightSettingsTab = () =>
   document.querySelector('#sidebar section.settings[data-tab="settings"]') ||
   document.querySelector('section.settings[data-tab="settings"]') ||
@@ -10,19 +8,9 @@ const getRightSettingsTab = () =>
   document.querySelector('#settings');
 
 export const registerSidebarReloadButton = () => {
-  modDbg(`registerSidebarReloadButton вызван (MODULE_ID=${MODULE_ID})`);
-
   const addReloadButton = () => {
-    let enabled = false;
-    try {
-      enabled = game.settings.get(MODULE_ID, "enableReloadButton");
-    } catch (err) {
-      modDbg(`Ошибка чтения настройки enableReloadButton: ${err.message}`);
-      return;
-    }
-
+    const enabled = game.settings.get(MODULE_ID, "enableReloadButton");
     const tabEl = getRightSettingsTab();
-    modDbg(`addReloadButton: enabled=${enabled}, tabEl=${tabEl ? "найден" : "нет"}`);
 
     document.querySelectorAll(".ipad-enhancer-reload-button").forEach((el) => {
       if (!enabled || !tabEl || !tabEl.contains(el)) {
@@ -40,7 +28,7 @@ export const registerSidebarReloadButton = () => {
     const button = document.createElement("button");
     button.type = "button";
     button.className = "ipad-enhancer-reload-button";
-    button.innerHTML = `<i class="fas fa-rotate"></i> ${label}`;
+    button.innerHTML = `<i class="fas fa-rotate"></i> <span>${label}</span>`;
     button.title = label;
 
     button.addEventListener("click", (event) => {
@@ -55,8 +43,6 @@ export const registerSidebarReloadButton = () => {
     } else {
       tabEl.prepend(button);
     }
-
-    modDbg("Кнопка модуля добавлена во вкладку Settings");
   };
 
   Hooks.on("renderSettings", addReloadButton);
@@ -73,5 +59,4 @@ export const registerSidebarReloadButton = () => {
 
   addReloadButton();
 };
-
 
