@@ -56,8 +56,8 @@ Hooks.once("ready", () => {
   registerSidebarReloadButton();
   initTouchBar();
   initTokenHudObserver();
-  attachStageTouchListener();
-  Hooks.on("canvasReady", attachStageTouchListener);
   ui.controls?.render();
   if (isSettingEnabled("disableTokenMovementAnimation")) disableTokenMovementAnimation();
 });
+
+Hooks.on("canvasReady", attachStageTouchListener);
