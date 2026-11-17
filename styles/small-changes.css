@@ -1,5 +1,11 @@
-/* Hide Macro Bar */
+/* Remove Macro Bar */
 
 body.ipad-enhancer-remove-macro-bar #hotbar {
+  display: none !important;
+}
+
+/* Remove Player List */
+
+body.ipad-enhancer-remove-player-list #players {
   display: none !important;
 }
