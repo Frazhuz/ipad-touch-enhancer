@@ -114,8 +114,8 @@ export const registerModuleSettings = (onStateChange) => {
   });
 
 game.settings.register(MODULE_ID, "disableAllNotifications", {
-  name: game.i18n.localize("IPAD_TOUCH_ENHANCER.Settings.DisableAllNotifications.Name") || "Disable All Notifications",
-  hint: game.i18n.localize("IPAD_TOUCH_ENHANCER.Settings.DisableAllNotifications.Hint") || "Hide all notifications in the interface.",
+  name: game.i18n.localize("IPAD_TOUCH_ENHANCER.Settings.DisableAllNotifications.Name"),
+  hint: game.i18n.localize("IPAD_TOUCH_ENHANCER.Settings.DisableAllNotifications.Hint"),
   scope: "client",
   config: true,
   type: Boolean,
