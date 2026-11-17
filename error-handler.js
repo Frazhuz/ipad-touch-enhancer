@@ -1,27 +1,27 @@
 
-const notifyError = (message, error) => {
-  console.error(`[ipad-touch-enhancer] ${message}`, error);
+const MODULE_ID = "ipad-touch-panel";
 
-  try {
-    globalThis.ui?.notifications?.error(
-      `[iPad Touch Panel] ${message}: ${
-        error?.message ?? error ?? "Unknown error"
-      }`
-    );
-  } catch (notificationError) {
-    console.error("Failed to display error notification:", notificationError);
-  }
-};
+function reportError(error) {
+  const message = error?.message ?? String(error);
 
-// Обычные JavaScript-ошибки
-window.addEventListener("error", event => {
-  notifyError(
-    event.message || "JavaScript error",
-    event.error
+  console.error(`[${MODULE_ID}]`, error);
+
+  globalThis.ui?.notifications?.error(
+    `[${MODULE_ID}] ${message}`,
+    { permanent: true }
   );
+}
+
+// Глобальные ошибки JavaScript
+window.addEventListener("error", event => {
+  reportError(event.error ?? event.message);
 });
 
-// Ошибки Promise
+// Необработанные Promise
 window.addEventListener("unhandledrejection", event => {
-  notifyError("Unhandled Promise rejection", event.reason);
+  reportError(event.reason);
 });
+
+// Динамическая загрузка основного модуля
+import("../main.js").catch(reportError);
+
