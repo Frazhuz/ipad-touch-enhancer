@@ -1,5 +1,3 @@
-
-
 import { applyPanelDisplay, isModuleEnabled, isSettingEnabled, panelState, savePanelState } from "./utilities.js";
 import { findTokenAtPos, openTokenHudFor } from "./token-hud.js";
 
