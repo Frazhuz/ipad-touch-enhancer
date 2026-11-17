@@ -47,6 +47,10 @@
         "Name": "Remove Player List",
         "Hint": "Hides player list."
       },
+		      "DisableTokenMovementAnimation": {
+        "Name": "Fast Tokens",
+        "Hint": "Disables Token Movement Animation."
+      },
       "CompactNotifications": {
         "Name": "Compact Notifications",
         "Hint": "Makes notifications smaller and moves them higher up."
