@@ -173,8 +173,8 @@ export const registerModuleSettings = (onStateChange) => {
     hint: game.i18n.localize("IPAD_TOUCH_ENHANCER.Settings.EnableReloadButton.Hint"),
     scope: "client",
     config: true,
-    type: Number,
-    default: 13,
+    type: Boolean,
+    default: false,
     onChange: syncBodyFeatureClasses
   });
 };
