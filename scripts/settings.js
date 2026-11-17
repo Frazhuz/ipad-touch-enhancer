@@ -167,4 +167,14 @@ export const registerModuleSettings = (onStateChange) => {
     default: 13,
     onChange: syncBodyFeatureClasses
   });
+
+  game.settings.register(MODULE_ID, "enableReloadButton", {
+    name: game.i18n.localize("IPAD_TOUCH_ENHANCER.Settings.EnableReloadButton.Name"),
+    hint: game.i18n.localize("IPAD_TOUCH_ENHANCER.Settings.EnableReloadButton.Hint"),
+    scope: "client",
+    config: true,
+    type: Number,
+    default: 13,
+    onChange: syncBodyFeatureClasses
+  });
 };
