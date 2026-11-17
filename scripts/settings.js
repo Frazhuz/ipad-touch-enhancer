@@ -174,7 +174,8 @@ export const registerModuleSettings = (onStateChange) => {
     scope: "client",
     config: true,
     type: Boolean,
-    default: false,
+    default: true,
+    requiresReload: true,
     onChange: syncBodyFeatureClasses
   });
 };
