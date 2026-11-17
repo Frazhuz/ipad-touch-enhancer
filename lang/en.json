@@ -24,7 +24,7 @@
         "Hint": "Removes the system datalist dropdown indicator (^) rendered by iPadOS Safari over the token elevation field."
       },
       "FixSafariWindows": {
-        "Name": "Fix Application Window Clipping",
+        "Name": "Fix Application Windows",
         "Hint": "Adjusts application window positioning to prevent clipping at the bottom of the screen."
       },
       "FixSafariInputs": {
