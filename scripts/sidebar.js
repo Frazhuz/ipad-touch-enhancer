@@ -21,9 +21,7 @@ export const registerSidebarReloadButton = () => {
     if (!enabled || !tabEl) return;
     if (tabEl.querySelector(".ipad-enhancer-reload-button")) return;
 
-    const label = game.i18n.localize(
-      "IPAD_TOUCH_ENHANCER.Settings.EnableReloadButton.Name"
-    );
+    const label = Reload;
 
     const button = document.createElement("button");
     button.type = "button";
