@@ -131,18 +131,18 @@ export const registerModuleSettings = (onStateChange) => {
     scope: "client",
     config: true,
     type: Number,
-    default: 60,
+    default: 15,
     onChange: syncBodyFeatureClasses
   });
 
-  // Notification Position: Right
-  game.settings.register(MODULE_ID, "notificationRight", {
-    name: game.i18n.localize("IPAD_TOUCH_ENHANCER.Settings.NotificationRight.Name"),
-    hint: game.i18n.localize("IPAD_TOUCH_ENHANCER.Settings.NotificationRight.Hint"),
+  // Notification Position: Left
+  game.settings.register(MODULE_ID, "notificationLeft", {
+    name: game.i18n.localize("IPAD_TOUCH_ENHANCER.Settings.NotificationLeft.Name"),
+    hint: game.i18n.localize("IPAD_TOUCH_ENHANCER.Settings.NotificationLeft.Hint"),
     scope: "client",
     config: true,
     type: Number,
-    default: 40,
+    default: 240,
     onChange: syncBodyFeatureClasses
   });
 
