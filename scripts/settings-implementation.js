@@ -1,3 +1,5 @@
+import { isSettingEnabled } from utilities.js
+
 export function disableTokenMovementAnimation() {
   const TokenClass = CONFIG.Token.objectClass;
   const originalGetAnimationDuration =
