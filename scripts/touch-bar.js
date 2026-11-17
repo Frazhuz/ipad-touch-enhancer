@@ -1,8 +1,9 @@
+
+
 import { applyPanelDisplay, isModuleEnabled, isSettingEnabled, panelState, savePanelState } from "./utilities.js";
 import { findTokenAtPos, openTokenHudFor } from "./token-hud.js";
 
-let activeMode = "none"; // "none" | "double" | "right" | "hover"
-let lastHoveredObject = null;
+let activeMode = "none"; // "none" | "double" | "right"
 
 export const getActiveMode = () => activeMode;
 
@@ -11,23 +12,6 @@ export const setActiveMode = (mode) => {
   document.querySelectorAll("#ipad-touch-toggles button[data-mode]").forEach((btn) => {
     btn.classList.toggle("active", btn.dataset.mode === activeMode);
   });
-};
-
-const clearSimulatedHover = () => {
-  if (!lastHoveredObject) return;
-  try {
-    if (!lastHoveredObject.destroyed) {
-      lastHoveredObject.hover = false;
-      if (typeof lastHoveredObject._onHoverOut === "function") {
-        lastHoveredObject._onHoverOut(new PIXI.FederatedPointerEvent());
-      } else {
-        lastHoveredObject.emit?.("pointerout");
-      }
-    }
-  } catch (err) {
-    // Игнорируем, если объект был удалён со сцены
-  }
-  lastHoveredObject = null;
 };
 
 const distToSegment = (p, v, w) => {
@@ -92,20 +76,9 @@ const dismissTouchVttMenu = () => {
 
 export const executeCanvasAction = (pos, mode) => {
   dismissTouchVttMenu();
-  clearSimulatedHover();
   const { obj, type } = findObjectAtScenePos(pos);
 
-  if (mode === "hover") {
-    if (obj) {
-      obj.hover = true;
-      lastHoveredObject = obj;
-      if (typeof obj._onHoverIn === "function") {
-        obj._onHoverIn(new PIXI.FederatedPointerEvent(), { hoverOutOthers: true });
-      } else {
-        obj.emit?.("pointerover");
-      }
-    }
-  } else if (mode === "double") {
+  if (mode === "double") {
     if (obj) {
       if (typeof obj.control === "function") obj.control({ releaseOthers: true });
       const sheet = obj.actor?.sheet || obj.sheet || obj.document?.sheet;
@@ -137,9 +110,6 @@ export const initTouchBar = () => {
   panel.id = "ipad-touch-toggles";
   panel.innerHTML = `
     <span class="drag-handle" title="Drag bar"><i class="fas fa-grip-vertical"></i></span>
-    <button type="button" data-mode="hover" title="Next tap = Hover">
-      <i class="fas fa-arrow-pointer"></i> Hover
-    </button>
     <button type="button" data-mode="double" title="Next tap = Double-Click">
       <i class="fas fa-hand-pointer"></i> 2x
     </button>
@@ -219,15 +189,9 @@ export const initTouchBar = () => {
     });
   });
 
-  // Расширяем перехват на весь document или оставляем на #sidebar + #ui-top / #hotbar
-  const uiContainers = [
-    document.getElementById("sidebar"),
-    document.getElementById("hotbar"),
-    document.getElementById("ui-top")
-  ].filter(Boolean);
-
-  uiContainers.forEach((container) => {
-    container.addEventListener(
+  const sidebar = document.getElementById("sidebar");
+  if (sidebar) {
+    sidebar.addEventListener(
       "click",
       (e) => {
         if (!isSettingEnabled("enableTouchBar") || activeMode === "none") return;
@@ -247,18 +211,7 @@ export const initTouchBar = () => {
           clientY: e.clientY
         };
 
-        if (chosenMode === "hover") {
-          target.dispatchEvent(new PointerEvent("pointerover", opts));
-          target.dispatchEvent(new PointerEvent("pointerenter", { ...opts, bubbles: false }));
-          target.dispatchEvent(new MouseEvent("mouseover", opts));
-          target.dispatchEvent(new MouseEvent("mouseenter", { ...opts, bubbles: false }));
-
-          // Принудительно показываем тултип Foundry, если у элемента или родителя есть data-tooltip
-          const tooltipEl = target.closest("[data-tooltip]");
-          if (tooltipEl && game.tooltip) {
-            game.tooltip.activate(tooltipEl);
-          }
-        } else if (chosenMode === "double") {
+        if (chosenMode === "double") {
           target.dispatchEvent(new MouseEvent("dblclick", { ...opts, button: 0 }));
         } else if (chosenMode === "right") {
           target.dispatchEvent(new MouseEvent("mousedown", { ...opts, button: 2, buttons: 2 }));
@@ -268,7 +221,7 @@ export const initTouchBar = () => {
       },
       { capture: true }
     );
-  });
+  }
 };
 
 export const attachStageTouchListener = () => {
@@ -299,9 +252,6 @@ export const attachStageTouchListener = () => {
       return;
     }
 
-    // При обычном тапе по сцене снимаем предыдущий симулированный hover
-    clearSimulatedHover();
-
     if (
       isSettingEnabled("enableSingleTapHud") &&
       canvas.activeLayer?.options?.name === "tokens" &&
@@ -317,4 +267,3 @@ export const attachStageTouchListener = () => {
   canvas.stage.on("pointerdowncapture", onStageDown);
   canvas.stage.on("pointerupcapture", onStageUp);
 };
-
