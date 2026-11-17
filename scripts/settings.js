@@ -124,6 +124,16 @@ export const registerModuleSettings = (onStateChange) => {
     onChange: syncBodyFeatureClasses
   });
 
+  game.settings.register(MODULE_ID, "disableTokenMovementAnimation", {
+    name: game.i18n.localize("IPAD_TOUCH_ENHANCER.Settings.DisableTokenMovementAnimation.Name"),
+    hint: game.i18n.localize("IPAD_TOUCH_ENHANCER.Settings.DisableTokenMovementAnimation.Hint"),
+    scope: "client",
+    config: true,
+    type: Boolean,
+    default: false,
+    requiresReload: true
+  });
+
 game.settings.register(MODULE_ID, "disableAllNotifications", {
   name: game.i18n.localize("IPAD_TOUCH_ENHANCER.Settings.DisableAllNotifications.Name"),
   hint: game.i18n.localize("IPAD_TOUCH_ENHANCER.Settings.DisableAllNotifications.Hint"),
