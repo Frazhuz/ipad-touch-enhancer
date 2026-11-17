@@ -1,60 +1,61 @@
 import { MODULE_ID } from "./utilities.js";
 
+const getRightSettingsTab = () =>
+  document.querySelector('#sidebar section.settings[data-tab="settings"]') ||
+  document.querySelector('section.settings[data-tab="settings"]') ||
+  document.querySelector('#sidebar [data-tab="settings"].tab') ||
+  document.querySelector('[data-tab="settings"].tab') ||
+  document.querySelector('#settings');
+
 export const registerSidebarReloadButton = () => {
   const addReloadButton = () => {
     const enabled = game.settings.get(MODULE_ID, "enableReloadButton");
+    const tabEl = getRightSettingsTab();
 
-    // Ищем вкладку Settings по основным возможным селекторам в v13
-    const settingsTab =
-      document.querySelector('#sidebar section.settings[data-tab="settings"]') ||
-      document.querySelector('#sidebar [data-tab="settings"]') ||
-      document.querySelector('#sidebar section.settings') ||
-      document.querySelector('#settings');
+    document.querySelectorAll(".ipad-enhancer-reload-button").forEach((el) => {
+      if (!enabled || !tabEl || !tabEl.contains(el)) {
+        el.remove();
+      }
+    });
 
-    const existing = document.querySelector(".ipad-enhancer-reload-button");
+    if (!enabled || !tabEl) return;
+    if (tabEl.querySelector(".ipad-enhancer-reload-button")) return;
 
-    if (!enabled) {
-      existing?.remove();
-      return;
-    }
-
-    if (!settingsTab) return;
-    if (existing && settingsTab.contains(existing)) return;
-    existing?.remove();
+    const label = Reload
 
     const button = document.createElement("button");
     button.type = "button";
     button.className = "ipad-enhancer-reload-button";
-    button.innerHTML = '<i class="fas fa-rotate"></i>';
-    button.title = game.i18n.localize(
-      "IPAD_TOUCH_ENHANCER.Settings.EnableReloadButton.Name"
-    );
+    button.innerHTML = `<i class="fas fa-rotate"></i> ${label}`;
+    button.title = label;
 
     button.addEventListener("click", (event) => {
       event.preventDefault();
+      ui.notifications.info("Reloading Foundry VTT...");
       window.location.reload();
     });
 
-    // Пробуем вставить после первого h2, иначе — в начало/конец settingsTab
-    const heading = settingsTab.querySelector("h2, h3, h4");
-    if (heading) {
-      heading.insertAdjacentElement("afterend", button);
+    const firstSection = tabEl.querySelector("section");
+    if (firstSection) {
+      firstSection.insertAdjacentElement("beforebegin", button);
     } else {
-      settingsTab.prepend(button);
+      tabEl.prepend(button);
     }
   };
 
-  Hooks.on("renderSidebarTab", addReloadButton);
   Hooks.on("renderSettings", addReloadButton);
-  Hooks.on("changeSidebarTab", addReloadButton);
-
-  // Наблюдаем за сайдбаром на случай перерисовок в ApplicationV2
-  const sidebar = document.querySelector("#sidebar") || document.body;
-  const observer = new MutationObserver(() => {
-    addReloadButton();
+  Hooks.on("renderSidebarTab", (app) => {
+    if (app?.tabName === "settings" || app?.constructor?.name === "Settings") {
+      addReloadButton();
+    }
   });
-  observer.observe(sidebar, { childList: true, subtree: true });
+  Hooks.on("changeSidebarTab", (app) => {
+    if (app?.tabName === "settings" || app?.constructor?.name === "Settings") {
+      addReloadButton();
+    }
+  });
 
   addReloadButton();
 };
+
 
