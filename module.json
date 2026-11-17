@@ -44,7 +44,7 @@
       "name": "Русский",
       "path": "lang/ru.json"
     }
-]
+  ],
   "url": "https://github.com/Frazhuz/ipad-touch-enhancer",
   "manifest": "https://raw.githubusercontent.com/Frazhuz/ipad-touch-enhancer/main/module.json",
   "download": "https://github.com/Frazhuz/ipad-touch-enhancer/archive/refs/heads/main.zip"
