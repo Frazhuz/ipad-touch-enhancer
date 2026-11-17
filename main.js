@@ -10,7 +10,7 @@ import {
   syncBodyFeatureClasses
 } from "./scripts/settings-implementation.js";
   
-import { registerModuleSettings } from "./scripts/settings.js"
+import { registerModuleSettings } from "./scripts/settings.js";
 import { attachStageTouchListener, initTouchBar, setActiveMode } from "./scripts/touch-bar.js";
 import { initTokenHudObserver } from "./scripts/token-hud.js";
 import { registerSidebarReloadButton } from "./scripts/sidebar.js";
