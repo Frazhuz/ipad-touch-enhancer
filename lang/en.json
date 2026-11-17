@@ -62,6 +62,10 @@
 			"NotificationFontSize": {
 				"Name": "Notification Font Size (px)",
 				"Hint": "Text size of notifications in pixels."
+			},
+					"EnableReloadButton": {
+				"Name": "Reload Button",
+				"Hint": "Adds a page reload button to the sidebar settings category."
 			}
     },
     "Controls": {
