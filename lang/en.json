@@ -9,11 +9,11 @@
       },
       "EnableTouchBar": {
         "Name": "Double-click / Right-click mini-bar",
-        "Hint": "Adds a draggable mini-bar to emulate double-click and right-click actions, with a toggle button in the Scene Controls bar to control its visibility."
+        "Hint": "Adds a draggable mini-bar to emulate double-click and right-click actions, with a toggle button in the Scene Controls bar to control its visibility (not compatible with Smart Target and similar modules)."
       },
       "EnableSingleTapHud": {
         "Name": "Token HUD on Short Tap",
-        "Hint": "Opens the Token HUD on a short tap of a token."
+        "Hint": "Opens the Token HUD on a short tap of a token (not compatible with Smart Target and similar modules)."
       },
       "EnableHudSheetButton": {
         "Name": "Actor Sheet Button",
