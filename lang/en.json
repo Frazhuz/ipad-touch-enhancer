@@ -42,6 +42,10 @@
       "RemovePlayerList": {
         "Name": "Remove Player List",
         "Hint": "Hides player list."
+      },
+      "CompactNotifications": {
+        "Name": "Compact Notifications",
+        "Hint": "Makes notifications smaller and moves them higher up."
       }
     },
     "Controls": {
