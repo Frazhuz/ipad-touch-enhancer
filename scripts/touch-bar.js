@@ -223,9 +223,6 @@ export const initTouchBar = () => {
 };
 
 export const attachStageTouchListener = () => {
-  if (!canvas?.stage || canvas.stage._ipadTogglesHooked) return;
-  canvas.stage._ipadTogglesHooked = true;
-
   let downPos = null;
 
   const onStageDown = (event) => {
