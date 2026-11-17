@@ -3,8 +3,13 @@ import {
   isSettingEnabled,
   panelState,
   setPanelVisibility,
-  syncBodyFeatureClasses
 } from "./scripts/utilities.js";
+
+import {
+  disableTokenMovementAnimation,
+  syncBodyFeatureClasses
+} from "./scripts/scripts/settings-implementation.js";
+  
 import { registerModuleSettings } from "./scripts/settings.js"
 import { attachStageTouchListener, initTouchBar, setActiveMode } from "./scripts/touch-bar.js";
 import { initTokenHudObserver } from "./scripts/token-hud.js";
@@ -54,4 +59,5 @@ Hooks.once("ready", () => {
   attachStageTouchListener();
   Hooks.on("canvasReady", attachStageTouchListener);
   ui.controls?.render();
+  if (isSettingEnabled("disableTokenMovementAnimation")) disableTokenMovementAnimation();
 });
