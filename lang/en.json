@@ -34,6 +34,14 @@
       "FixRegionLegend": {
         "Name": "Fix Region Legend List",
         "Hint": "Ensures the regions list is visible."
+      },
+      "RemoveMacroBar": {
+        "Name": "Remove Macro Bar",
+        "Hint": "Hides macro bar."
+      },
+      "RemovePlayerList": {
+        "Name": "Remove Player List",
+        "Hint": "Hides player list."
       }
     },
     "Controls": {
