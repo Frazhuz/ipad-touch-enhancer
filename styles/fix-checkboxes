@@ -1,0 +1,46 @@
+body.ipad-enhancer-fix-inputs .application .form-group input[type="color"] {
+    flex: 0 0 44px !important;
+    width: 44px !important;
+    min-width: 44px !important;
+    height: 28px !important;
+    padding: 2px !important;
+    border-radius: 4px !important;
+  }
+
+  body.ipad-enhancer-fix-checkboxes .application input[type="checkbox"],
+  body.ipad-enhancer-fix-checkboxes dialog.application input[type="checkbox"] {
+    -webkit-appearance: none !important;
+    appearance: none !important;
+    position: relative !important;
+    flex: 0 0 20px !important;
+    width: 20px !important;
+    height: 20px !important;
+    min-width: 20px !important;
+    min-height: 20px !important;
+    margin-right: 8px !important;
+    overflow: hidden !important;
+  }
+
+  /* Для классических окон модулей (.window-app, например 3D Dice Settings) возвращаем системный чекбокс Safari */
+  body.ipad-enhancer-fix-checkboxes .window-app:not(.application) input[type="checkbox"] {
+    -webkit-appearance: checkbox !important;
+    appearance: checkbox !important;
+    width: 20px !important;
+    height: 20px !important;
+    min-width: 20px !important;
+    min-height: 20px !important;
+    flex: 0 0 20px !important;
+    margin-right: 8px !important;
+  }
+
+  /* Фиксируем псевдоэлементы галочки строго внутри границ чекбокса ApplicationV2 */
+  body.ipad-enhancer-fix-checkboxes .application input[type="checkbox"]::before,
+  body.ipad-enhancer-fix-checkboxes .application input[type="checkbox"]::after,
+  body.ipad-enhancer-fix-checkboxes dialog.application input[type="checkbox"]::before,
+  body.ipad-enhancer-fix-checkboxes dialog.application input[type="checkbox"]::after {
+    position: absolute !important;
+    inset: 0 !important;
+    margin: auto !important;
+    transform: none !important;
+  }
+}
