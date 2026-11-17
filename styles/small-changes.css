@@ -14,22 +14,24 @@ body.ipad-enhancer-remove-player-list #players {
    Notifications
    ========================================= */
 
+/* =========================================
+   Compact Notifications
+   ========================================= */
+
 body.ipad-enhancer-compact-notifications #notifications {
   position: fixed !important;
-  top: 15px !important;
+  top: var(--ie-notification-top, 15px) !important;
   right: auto !important;
-  left: 235px !important;
+  left: var(--ie-notification-left, 240px) !important;
   bottom: auto !important;
 }
 
-/* Compact notification appearance */
-
-body.ipad-enhancer-remove-compact-notifications #notifications .notification {
+body.ipad-enhancer-compact-notifications #notifications .notification {
+  width: auto;
+  max-width: var(--ie-notification-width, 260px);
   padding: 4px 8px;
   margin: 2px 0;
-  font-size: 0.8rem;
+  font-size: var(--ie-notification-font-size, 13px);
   line-height: 1.2;
   min-height: 0;
-  width: auto;
-  max-width: 260px;
 }
