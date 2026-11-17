@@ -1,5 +1,5 @@
 /* Hide Macro Bar */
 
-body.ipad-enhancer-hide-macro-bar #hotbar {
+body.ipad-enhancer-remove-macro-bar #hotbar {
   display: none !important;
 }
