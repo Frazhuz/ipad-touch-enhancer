@@ -50,6 +50,8 @@ export const syncBodyFeatureClasses = () => {
   document.body.classList.toggle("ipad-enhancer-remove-player-list", isSettingEnabled("removePlayerList"));
   document.body.classList.toggle("ipad-enhancer-disable-all-notifications", isSettingEnabled("disableAllNotifications"));
   document.body.classList.toggle("ipad-enhancer-compact-notifications", isSettingEnabled("compactNotifications"));
+  document.body.classList.toggle("ipad-enhancer-fix-settings-overflow", isSettingEnabled("fixSettingsOverflow"));
+
   const notificationSettings = {
     "--ie-notification-top": "notificationTop",
     "--ie-notification-left": "notificationLeft",
