@@ -17,6 +17,3 @@ window.addEventListener("unhandledrejection", event => {
   reportError(event.reason);
 });
 
-// Динамическая загрузка основного модуля
-import("../main.js").catch(reportError);
-
