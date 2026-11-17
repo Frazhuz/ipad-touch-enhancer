@@ -73,6 +73,17 @@ export const registerModuleSettings = (onStateChange) => {
     onChange: syncBodyFeatureClasses
   });
 
+  game.settings.register(MODULE_ID, "fixSettingsOverflow", {
+  name: game.i18n.localize("IPAD_TOUCH_ENHANCER.Settings.FixSettingsOverflow.Name"),
+  hint: game.i18n.localize("IPAD_TOUCH_ENHANCER.Settings.FixSettingsOverflow.Hint"),
+  scope: "client",
+  config: true,
+  type: Boolean,
+  default: true,
+  onChange: syncBodyFeatureClasses
+});
+
+
   game.settings.register(MODULE_ID, "fixCheckboxes", {
     name: game.i18n.localize("IPAD_TOUCH_ENHANCER.Settings.FixCheckboxes.Name"),
     hint: game.i18n.localize("IPAD_TOUCH_ENHANCER.Settings.FixCheckboxes.Hint"),
