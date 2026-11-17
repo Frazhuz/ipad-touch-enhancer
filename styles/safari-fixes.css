@@ -56,6 +56,13 @@
     word-break: break-word !important;
   }
 
+  /* Сохраняем видимость и минимальную высоту полей ввода и редакторов (например, в модулях Custom CSS) */
+  body.ipad-enhancer-fix-windows .application :is(input, textarea, select, .CodeMirror, .cm-editor, [contenteditable="true"]) {
+    min-height: 28px !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+
   body.ipad-enhancer-fix-windows #settings-config aside,
   body.ipad-enhancer-fix-windows .application aside.sidebar {
     flex: 0 1 190px !important;
