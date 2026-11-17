@@ -21,7 +21,7 @@ export const registerSidebarReloadButton = () => {
     if (!enabled || !tabEl) return;
     if (tabEl.querySelector(".ipad-enhancer-reload-button")) return;
 
-    const label = Reload;
+    const label = "Reload";
 
     const button = document.createElement("button");
     button.type = "button";
