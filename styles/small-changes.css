@@ -9,3 +9,27 @@ body.ipad-enhancer-remove-macro-bar #hotbar {
 body.ipad-enhancer-remove-player-list #players {
   display: none !important;
 }
+
+/* =========================================
+   Notifications
+   ========================================= */
+
+body.ipad-enhancer-compact-notifications #notifications {
+  position: fixed !important;
+  top: 15px !important;
+  right: auto !important;
+  left: 235px !important;
+  bottom: auto !important;
+}
+
+/* Compact notification appearance */
+
+body.ipad-enhancer-remove-compact-notifications #notifications .notification {
+  padding: 4px 8px;
+  margin: 2px 0;
+  font-size: 0.8rem;
+  line-height: 1.2;
+  min-height: 0;
+  width: auto;
+  max-width: 260px;
+}
