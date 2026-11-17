@@ -28,7 +28,7 @@ body.ipad-enhancer-compact-notifications #notifications {
 
 body.ipad-enhancer-compact-notifications #notifications .notification {
   width: auto;
-  max-width: var(--ie-notification-width, 260px);
+  max-width: var(--ie-notification-width, 480px);
   padding: 4px 8px;
   margin: 2px 0;
   font-size: var(--ie-notification-font-size, 13px);
