@@ -1,0 +1,30 @@
+/* Исправление отображения и высоты списка регионов в Region Legend */
+body.ipad-enhancer-fix-region-legend #region-legend .window-content,
+body.ipad-enhancer-fix-region-legend [id*="region-legend"] .window-content,
+body.ipad-enhancer-fix-region-legend .region-legend .window-content {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+}
+
+body.ipad-enhancer-fix-region-legend #region-legend :is(ol, ul, [class*="list"], [class*="regions"]),
+body.ipad-enhancer-fix-region-legend [id*="region-legend"] :is(ol, ul, [class*="list"], [class*="regions"]),
+body.ipad-enhancer-fix-region-legend .region-legend :is(ol, ul, [class*="list"], [class*="regions"]) {
+  display: flex;
+  flex-direction: column;
+  flex: 0 1 auto;
+  height: auto;
+  min-height: 0;
+  max-height: 50dvh;
+  overflow-y: auto;
+  visibility: visible;
+  opacity: 1;
+}
+
+body.ipad-enhancer-fix-region-legend #region-legend :is(ol, ul, [class*="list"], [class*="regions"]) > *,
+body.ipad-enhancer-fix-region-legend [id*="region-legend"] :is(ol, ul, [class*="list"], [class*="regions"]) > *,
+body.ipad-enhancer-fix-region-legend .region-legend :is(ol, ul, [class*="list"], [class*="regions"]) > * {
+  flex: 0 0 auto;
+  visibility: visible;
+  opacity: 1;
+}
