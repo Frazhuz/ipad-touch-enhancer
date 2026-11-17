@@ -113,6 +113,17 @@ export const registerModuleSettings = (onStateChange) => {
     onChange: syncBodyFeatureClasses
   });
 
+game.settings.register(MODULE_ID, "disableAllNotifications", {
+  name: game.i18n.localize("IPAD_TOUCH_ENHANCER.Settings.DisableAllNotifications.Name") || "Disable All Notifications",
+  hint: game.i18n.localize("IPAD_TOUCH_ENHANCER.Settings.DisableAllNotifications.Hint") || "Hide all notifications in the interface.",
+  scope: "client",
+  config: true,
+  type: Boolean,
+  default: false,
+  onChange: syncBodyFeatureClasses
+});
+
+
   // Compact Notifications
   game.settings.register(MODULE_ID, "compactNotifications", {
     name: game.i18n.localize("IPAD_TOUCH_ENHANCER.Settings.CompactNotifications.Name"),
