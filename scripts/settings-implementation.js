@@ -1,4 +1,4 @@
-import { isSettingEnabled } from "./utilities.js";
+import { isSettingEnabled, MODULE_ID } from "./utilities.js";
 
 export function disableTokenMovementAnimation() {
   const TokenClass = CONFIG.Token.objectClass;
