@@ -8,11 +8,13 @@ import {
 import { registerModuleSettings } from "./scripts/settings.js"
 import { attachStageTouchListener, initTouchBar, setActiveMode } from "./scripts/touch-bar.js";
 import { initTokenHudObserver } from "./scripts/token-hud.js";
+import { registerSidebarReloadButton } from "./sidebar.js";
 
 const resetModeCallback = () => setActiveMode("none");
 
 Hooks.once("init", () => {
   registerModuleSettings(() => applyPanelDisplay(resetModeCallback));
+  registerSidebarReloadButton();
 });
 
 Hooks.on("getSceneControlButtons", (controls) => {
