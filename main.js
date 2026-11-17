@@ -8,7 +8,7 @@ import {
 import {
   disableTokenMovementAnimation,
   syncBodyFeatureClasses
-} from "./scripts/scripts/settings-implementation.js";
+} from "./scripts/settings-implementation.js";
   
 import { registerModuleSettings } from "./scripts/settings.js"
 import { attachStageTouchListener, initTouchBar, setActiveMode } from "./scripts/touch-bar.js";
