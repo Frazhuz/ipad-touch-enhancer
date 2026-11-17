@@ -2,7 +2,7 @@ import {
   applyPanelDisplay,
   isSettingEnabled,
   panelState,
-  setPanelVisibility,
+  setPanelVisibility
 } from "./scripts/utilities.js";
 
 import {
