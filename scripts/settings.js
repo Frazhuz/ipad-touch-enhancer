@@ -111,4 +111,14 @@ export const registerModuleSettings = (onStateChange) => {
     default: false,
     onChange: syncBodyFeatureClasses
   });
+
+  game.settings.register(MODULE_ID, "compactNotifications", {
+    name: game.i18n.localize("IPAD_TOUCH_ENHANCER.Settings.CompactNotifications.Name"),
+    hint: game.i18n.localize("IPAD_TOUCH_ENHANCER.Settings.CompactNotifications.Hint"),
+    scope: "client",
+    config: true,
+    type: Boolean,
+    default: false,
+    onChange: syncBodyFeatureClasses
+  });
 };
